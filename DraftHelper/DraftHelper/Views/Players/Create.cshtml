@@ -1,0 +1,79 @@
+@model DraftHelper.Models.NFLPlayer
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset class="form-horizontal">
+        <legend>NFLPlayer</legend>
+
+        <div class="control-group">
+            @Html.LabelFor(model => model.Name, new { @class = "control-label" })
+			<div class="controls">
+				@Html.EditorFor(model => model.Name)
+				@Html.ValidationMessageFor(model => model.Name, null, new { @class = "help-inline" })
+			</div>
+		</div>
+
+        <div class="control-group">
+            @Html.LabelFor(model => model.Position, new { @class = "control-label" })
+			<div class="controls">
+				@Html.EditorFor(model => model.Position)
+				@Html.ValidationMessageFor(model => model.Position, null, new { @class = "help-inline" })
+			</div>
+		</div>
+
+        <div class="control-group">
+            @Html.LabelFor(model => model.ESPNRank, new { @class = "control-label" })
+			<div class="controls">
+				@Html.EditorFor(model => model.ESPNRank)
+				@Html.ValidationMessageFor(model => model.ESPNRank, null, new { @class = "help-inline" })
+			</div>
+		</div>
+
+        <div class="control-group">
+            @Html.LabelFor(model => model.MyRank, new { @class = "control-label" })
+			<div class="controls">
+				@Html.EditorFor(model => model.MyRank)
+				@Html.ValidationMessageFor(model => model.MyRank, null, new { @class = "help-inline" })
+			</div>
+		</div>
+
+        <div class="control-group">
+            @Html.LabelFor(model => model.DepthChart, new { @class = "control-label" })
+			<div class="controls">
+				@Html.EditorFor(model => model.DepthChart)
+				@Html.ValidationMessageFor(model => model.DepthChart, null, new { @class = "help-inline" })
+			</div>
+		</div>
+
+        <div class="control-group">
+            @Html.LabelFor(model => model.NFLTeam_Id, "NFLTeam", new { @class = "control-label" })
+			<div class="controls">
+				@Html.DropDownList("NFLTeam_Id", String.Empty)
+				@Html.ValidationMessageFor(model => model.NFLTeam_Id, null, new { @class = "help-inline" })
+			</div>
+		</div>
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Create" class="btn" />
+        </div>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+

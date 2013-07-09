@@ -1,0 +1,72 @@
+@model DraftHelper.Models.NFLTeam
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset class="form-horizontal">
+        <legend>NFLTeam</legend>
+
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="control-group">
+            @Html.LabelFor(model => model.Name, new { @class = "control-label" })
+			<div class="controls">
+				@Html.EditorFor(model => model.Name)
+				@Html.ValidationMessageFor(model => model.Name, null, new { @class = "help-inline" })
+			</div>
+		</div>
+
+        <div class="control-group">
+            @Html.LabelFor(model => model.Locale, new { @class = "control-label" })
+			<div class="controls">
+				@Html.EditorFor(model => model.Locale)
+				@Html.ValidationMessageFor(model => model.Locale, null, new { @class = "help-inline" })
+			</div>
+		</div>
+
+        <div class="control-group">
+            @Html.LabelFor(model => model.Abbrev, new { @class = "control-label" })
+			<div class="controls">
+				@Html.EditorFor(model => model.Abbrev)
+				@Html.ValidationMessageFor(model => model.Abbrev, null, new { @class = "help-inline" })
+			</div>
+		</div>
+
+        <div class="control-group">
+            @Html.LabelFor(model => model.Conference, new { @class = "control-label" })
+			<div class="controls">
+				@Html.EditorFor(model => model.Conference)
+				@Html.ValidationMessageFor(model => model.Conference, null, new { @class = "help-inline" })
+			</div>
+		</div>
+
+        <div class="control-group">
+            @Html.LabelFor(model => model.Division, new { @class = "control-label" })
+			<div class="controls">
+				@Html.EditorFor(model => model.Division)
+				@Html.ValidationMessageFor(model => model.Division, null, new { @class = "help-inline" })
+			</div>
+		</div>
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Save" class="btn" />
+        </div>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+

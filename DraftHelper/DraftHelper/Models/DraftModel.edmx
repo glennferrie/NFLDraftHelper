@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DraftHelperModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="NFLPlayers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Position" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ESPNRank" Type="int" Nullable="false" />
+          <Property Name="MyRank" Type="int" Nullable="false" />
+          <Property Name="DepthChart" Type="int" Nullable="false" />
+          <Property Name="NFLTeam_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NFLTeams">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Locale" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Abbrev" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Conference" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Division" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_NFLTeamNFLPlayer">
+          <End Role="NFLTeams" Type="Self.NFLTeams" Multiplicity="1" />
+          <End Role="NFLPlayers" Type="Self.NFLPlayers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NFLTeams">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="NFLPlayers">
+              <PropertyRef Name="NFLTeam_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DraftHelperModelStoreContainer">
+          <EntitySet Name="NFLPlayers" EntityType="Self.NFLPlayers" Schema="dbo" p3:Type="Tables" xmlns:p3="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="NFLTeams" EntityType="Self.NFLTeams" Schema="dbo" p3:Type="Tables" xmlns:p3="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <AssociationSet Name="FK_NFLTeamNFLPlayer" Association="Self.FK_NFLTeamNFLPlayer">
+            <End Role="NFLTeams" EntitySet="NFLTeams" />
+            <End Role="NFLPlayers" EntitySet="NFLPlayers" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DraftHelperModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="NFLPlayer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Position" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ESPNRank" Type="Int32" Nullable="false" />
+          <Property Name="MyRank" Type="Int32" Nullable="false" />
+          <Property Name="DepthChart" Type="Int32" Nullable="false" />
+          <Property Name="NFLTeam_Id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="NFLTeam" Relationship="Self.FK_NFLTeamNFLPlayer" FromRole="NFLPlayers" ToRole="NFLTeams" />
+        </EntityType>
+        <EntityType Name="NFLTeam">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Locale" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Abbrev" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Conference" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Division" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="NFLPlayers" Relationship="Self.FK_NFLTeamNFLPlayer" FromRole="NFLTeams" ToRole="NFLPlayers" />
+        </EntityType>
+        <Association Name="FK_NFLTeamNFLPlayer">
+          <End Role="NFLTeams" Type="Self.NFLTeam" Multiplicity="1" />
+          <End Role="NFLPlayers" Type="Self.NFLPlayer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NFLTeams">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="NFLPlayers">
+              <PropertyRef Name="NFLTeam_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DraftHelperEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="NFLPlayers" EntityType="Self.NFLPlayer" />
+          <EntitySet Name="NFLTeams" EntityType="Self.NFLTeam" />
+          <AssociationSet Name="FK_NFLTeamNFLPlayer" Association="Self.FK_NFLTeamNFLPlayer">
+            <End Role="NFLTeams" EntitySet="NFLTeams" />
+            <End Role="NFLPlayers" EntitySet="NFLPlayers" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DraftHelperModelStoreContainer" CdmEntityContainer="DraftHelperEntities">
+          <EntitySetMapping Name="NFLPlayers">
+            <EntityTypeMapping TypeName="DraftHelperModel.NFLPlayer">
+              <MappingFragment StoreEntitySet="NFLPlayers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Position" ColumnName="Position" />
+                <ScalarProperty Name="ESPNRank" ColumnName="ESPNRank" />
+                <ScalarProperty Name="MyRank" ColumnName="MyRank" />
+                <ScalarProperty Name="DepthChart" ColumnName="DepthChart" />
+                <ScalarProperty Name="NFLTeam_Id" ColumnName="NFLTeam_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NFLTeams">
+            <EntityTypeMapping TypeName="DraftHelperModel.NFLTeam">
+              <MappingFragment StoreEntitySet="NFLTeams">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Locale" ColumnName="Locale" />
+                <ScalarProperty Name="Abbrev" ColumnName="Abbrev" />
+                <ScalarProperty Name="Conference" ColumnName="Conference" />
+                <ScalarProperty Name="Division" ColumnName="Division" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,72 @@
+@model DraftHelper.Models.NFLPlayer
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>NFLPlayer</legend>
+
+	<dl>
+		<dt>
+			@Html.DisplayNameFor(model => model.Name)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.Name)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.Position)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.Position)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.ESPNRank)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.ESPNRank)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.MyRank)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.MyRank)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.DepthChart)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.DepthChart)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.NFLTeam.Name)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.NFLTeam.Name)
+		</dd>
+
+	</dl>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+
+    <div class="form-actions no-color">
+        <input type="submit" value="Delete" class="btn" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+}

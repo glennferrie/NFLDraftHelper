@@ -1,0 +1,64 @@
+@model DraftHelper.Models.NFLTeam
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+	<legend>NFL Team</legend>
+	<dl>
+		<dt>
+			Team:
+		</dt>
+
+		<dd>
+			@Model.Locale @Model.Name (@Model.Abbrev)
+		</dd>
+
+		<dt>
+			Division:
+		</dt>
+
+		<dd>
+			@Model.Conference @Model.Division
+		</dd>
+
+        <dt>
+            Add Players: 
+        </dt>
+
+        <dd>
+            @foreach (string position in new[] { "QB", "RB", "WR", "TE", "DEF" })
+            {
+                <text>@Html.ActionLink("[Add " + position + "]", "AddPlayer", new { pos = position, team = Model.Id, teamName = Model.Name })</text>
+            }
+        </dd>
+
+        <dt>
+            Players List
+        </dt>
+
+        <dd>
+            @if (Model.NFLPlayers.Count == 0)
+            {
+                <h5>No players exist for this team</h5>
+            }
+            else 
+            {
+                <ul>
+                    @foreach (var player in Model.NFLPlayers)
+                    {
+                        <li>@Html.ActionLink(player.Name + " (" + player.Position + ")", "Edit", "Players", new { id = player.Id }, null)</li>
+                    }
+                </ul>   
+            }
+        </dd>
+	</dl>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

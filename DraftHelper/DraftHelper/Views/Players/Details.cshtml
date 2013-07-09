@@ -1,0 +1,66 @@
+@model DraftHelper.Models.NFLPlayer
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+	<legend>NFLPlayer</legend>
+	<dl>
+		<dt>
+			@Html.DisplayNameFor(model => model.Name)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.Name)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.Position)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.Position)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.ESPNRank)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.ESPNRank)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.MyRank)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.MyRank)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.DepthChart)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.DepthChart)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.NFLTeam.Name)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.NFLTeam.Name)
+		</dd>
+
+	</dl>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
