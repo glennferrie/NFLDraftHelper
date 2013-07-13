@@ -1,0 +1,40 @@
+@model IEnumerable<TeamOwner>
+
+@{
+    ViewBag.Title = "Team Owners";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TeamName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DraftOrder)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TeamName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DraftOrder)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn" }   )
+            @Html.ActionLink("View Roster", "Details", new { id = item.Id }, new { @class = "btn" })
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn" })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,26 @@
+@model Int32
+@{
+    ViewBag.Title = "Start Draft";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Start Draft</h2>
+
+@using (Html.BeginForm("StartDraft", "Tools", FormMethod.Post))
+{
+
+    if (ViewBag.BlockStart == null)
+    {
+        <h3>Are you sure you want to start the draft with @Model team owners?</h3>
+    
+    <input type="submit" value="Yes!" />
+    }
+    else
+    {
+        <h3>@ViewBag.BlockStart</h3>
+
+    } 
+    
+    @Html.ActionLink("Cancel", "Index", "Home")
+}
+

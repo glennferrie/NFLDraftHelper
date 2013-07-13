@@ -12,17 +12,17 @@ namespace DraftHelper.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class NFLPlayer
+    public partial class TeamOwner
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Position { get; set; }
-        public int ESPNRank { get; set; }
-        public int MyRank { get; set; }
-        public int DepthChart { get; set; }
-        public int NFLTeam_Id { get; set; }
+        public TeamOwner()
+        {
+            this.DraftPicks = new HashSet<DraftPick>();
+        }
     
-        public virtual NFLTeam NFLTeam { get; set; }
-        public virtual DraftPick DraftPick { get; set; }
+        public int Id { get; set; }
+        public string TeamName { get; set; }
+        public Nullable<int> DraftOrder { get; set; }
+    
+        public virtual ICollection<DraftPick> DraftPicks { get; set; }
     }
 }

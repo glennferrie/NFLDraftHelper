@@ -1,11 +1,9 @@
-@model DraftHelper.Models.NFLTeam
+@model NFLTeam
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Create Team";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h2>Create</h2>
 
 @using (Html.BeginForm()) 
 {
@@ -13,7 +11,7 @@
     @Html.ValidationSummary(true)
 
     <fieldset class="form-horizontal">
-        <legend>NFLTeam</legend>
+        <legend>Create Team</legend>
 
         <div class="control-group">
             @Html.LabelFor(model => model.Name, new { @class = "control-label" })
@@ -42,7 +40,7 @@
         <div class="control-group">
             @Html.LabelFor(model => model.Conference, new { @class = "control-label" })
 			<div class="controls">
-				@Html.EditorFor(model => model.Conference)
+				@Html.DropDownListFor(model => model.Conference, Lists.GetConferences())
 				@Html.ValidationMessageFor(model => model.Conference, null, new { @class = "help-inline" })
 			</div>
 		</div>
@@ -50,7 +48,7 @@
         <div class="control-group">
             @Html.LabelFor(model => model.Division, new { @class = "control-label" })
 			<div class="controls">
-				@Html.EditorFor(model => model.Division)
+				@Html.DropDownListFor(model => model.Division, Lists.GetConferences())
 				@Html.ValidationMessageFor(model => model.Division, null, new { @class = "help-inline" })
 			</div>
 		</div>

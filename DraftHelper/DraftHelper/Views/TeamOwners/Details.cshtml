@@ -1,0 +1,34 @@
+@model DraftHelper.Models.TeamOwner
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+	<legend>TeamOwner</legend>
+	<dl>
+		<dt>
+			@Html.DisplayNameFor(model => model.TeamName)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.TeamName)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.DraftOrder)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.DraftOrder)
+		</dd>
+
+	</dl>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

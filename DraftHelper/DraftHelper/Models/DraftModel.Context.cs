@@ -27,5 +27,7 @@ namespace DraftHelper.Models
     
         public DbSet<NFLPlayer> NFLPlayers { get; set; }
         public DbSet<NFLTeam> NFLTeams { get; set; }
+        public DbSet<TeamOwner> TeamOwners { get; set; }
+        public DbSet<DraftPick> DraftPicks { get; set; }
     }
 }

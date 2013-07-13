@@ -8,6 +8,10 @@
         <EntityTypeShape EntityType="DraftHelperModel.NFLPlayer" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="DraftHelperModel.NFLTeam" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
         <AssociationConnector Association="DraftHelperModel.FK_NFLTeamNFLPlayer" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DraftHelperModel.TeamOwner" Width="1.5" PointX="5.25" PointY="1.125" />
+        <EntityTypeShape EntityType="DraftHelperModel.DraftPick" Width="1.5" PointX="8.375" PointY="1" />
+        <AssociationConnector Association="DraftHelperModel.TeamOwnerDraftPick" />
+        <AssociationConnector Association="DraftHelperModel.DraftPickNFLPlayer" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

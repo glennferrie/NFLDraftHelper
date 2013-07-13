@@ -12,17 +12,12 @@ namespace DraftHelper.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class NFLPlayer
+    public partial class DraftPick
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string Position { get; set; }
-        public int ESPNRank { get; set; }
-        public int MyRank { get; set; }
-        public int DepthChart { get; set; }
-        public int NFLTeam_Id { get; set; }
+        public int PickNumber { get; set; }
     
-        public virtual NFLTeam NFLTeam { get; set; }
-        public virtual DraftPick DraftPick { get; set; }
+        public virtual TeamOwner TeamOwner { get; set; }
+        public virtual NFLPlayer SelectedPlayer { get; set; }
     }
 }
