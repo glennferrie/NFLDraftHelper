@@ -48,7 +48,7 @@
         <div class="control-group">
             @Html.LabelFor(model => model.Division, new { @class = "control-label" })
 			<div class="controls">
-				@Html.DropDownListFor(model => model.Division, Lists.GetConferences())
+				@Html.DropDownListFor(model => model.Division, Lists.GetDivisions())
 				@Html.ValidationMessageFor(model => model.Division, null, new { @class = "help-inline" })
 			</div>
 		</div>

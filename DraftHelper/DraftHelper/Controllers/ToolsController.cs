@@ -70,5 +70,13 @@ namespace DraftHelper.Controllers
         {
             return View();
         }
+        [HttpPost]
+        public ActionResult ResetDraft(FormCollection collection)
+        {
+            var db = new DraftHelperEntities();
+            db.DraftPicks.RemoveRange(db.DraftPicks.ToList());
+            db.SaveChanges();
+            return RedirectToAction("Index", "Home");
+        }
 	}
 }

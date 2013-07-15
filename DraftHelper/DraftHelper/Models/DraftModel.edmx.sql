@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 07/13/2013 10:04:11
+-- Date Created: 07/13/2013 21:37:20
 -- Generated from EDMX file: C:\git\NFLDraftHelper\DraftHelper\DraftHelper\Models\DraftModel.edmx
 -- --------------------------------------------------
 
@@ -20,6 +20,12 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_NFLTeamNFLPlayer]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[NFLPlayers] DROP CONSTRAINT [FK_NFLTeamNFLPlayer];
 GO
+IF OBJECT_ID(N'[dbo].[FK_TeamOwnerDraftPick]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[DraftPicks] DROP CONSTRAINT [FK_TeamOwnerDraftPick];
+GO
+IF OBJECT_ID(N'[dbo].[FK_DraftPickNFLPlayer]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[NFLPlayers] DROP CONSTRAINT [FK_DraftPickNFLPlayer];
+GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
@@ -31,6 +37,12 @@ GO
 IF OBJECT_ID(N'[dbo].[NFLTeams]', 'U') IS NOT NULL
     DROP TABLE [dbo].[NFLTeams];
 GO
+IF OBJECT_ID(N'[dbo].[TeamOwners]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[TeamOwners];
+GO
+IF OBJECT_ID(N'[dbo].[DraftPicks]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[DraftPicks];
+GO
 
 -- --------------------------------------------------
 -- Creating all tables
@@ -41,9 +53,9 @@ CREATE TABLE [dbo].[NFLPlayers] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [Name] nvarchar(max)  NOT NULL,
     [Position] nvarchar(max)  NOT NULL,
-    [ESPNRank] int  NOT NULL,
-    [MyRank] int  NOT NULL,
-    [DepthChart] int  NOT NULL,
+    [ESPNRank] int  NULL,
+    [MyRank] int  NULL,
+    [DepthChart] int  NULL,
     [NFLTeam_Id] int  NOT NULL,
     [DraftPick_Id] int  NULL
 );

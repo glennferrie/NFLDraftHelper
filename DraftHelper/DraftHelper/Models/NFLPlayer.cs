@@ -17,9 +17,9 @@ namespace DraftHelper.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public string Position { get; set; }
-        public int ESPNRank { get; set; }
-        public int MyRank { get; set; }
-        public int DepthChart { get; set; }
+        public Nullable<int> ESPNRank { get; set; }
+        public Nullable<int> MyRank { get; set; }
+        public Nullable<int> DepthChart { get; set; }
         public int NFLTeam_Id { get; set; }
     
         public virtual NFLTeam NFLTeam { get; set; }

@@ -17,7 +17,22 @@
         <ul>
             @foreach (DraftPick item in Model)
             {
-                <li>(@item.PickNumber) @item.TeamOwner.TeamName</li>
+                string playername = string.Empty;
+                int linkid = item.PickNumber;
+                string action = "Select";
+                string controller = "Players";
+
+                if (item.SelectedPlayer == null)
+                {
+                    playername = "Select a player";
+                }
+                else
+                {
+                    playername = item.SelectedPlayer.Name;
+                    action = "Details";
+                }
+                 
+                <li>(@item.PickNumber) @item.TeamOwner.TeamName - @Html.ActionLink(playername, action, controller, new { pick = linkid }, null)</li>
             }
         </ul>
     }

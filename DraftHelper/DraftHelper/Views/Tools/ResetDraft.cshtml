@@ -1,0 +1,27 @@
+
+@{
+    ViewBag.Title = "Reset Draft";
+}
+
+<h2>Reset Draft</h2>
+
+@using (Html.BeginForm("ResetDraft", "Tools", FormMethod.Post))
+{
+
+    if (ViewBag.BlockStart == null)
+    {
+        <h3>Are you sure you want to reset the draft?</h3>
+
+        <input type="submit" value="Yes!" />
+    }
+    else
+    {
+        <h3>@ViewBag.BlockStart</h3>
+
+    }
+
+    @Html.ActionLink("Cancel", "Index", "Home")
+}
+
+
+

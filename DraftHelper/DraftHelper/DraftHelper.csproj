@@ -213,6 +213,7 @@
     <Content Include="Views\TeamOwners\Edit.cshtml" />
     <Content Include="Views\TeamOwners\Index.cshtml" />
     <Content Include="Views\Tools\StartDraft.cshtml" />
+    <Content Include="Views\Tools\ResetDraft.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

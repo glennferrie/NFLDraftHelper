@@ -30,9 +30,9 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Position" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="ESPNRank" Type="int" Nullable="false" />
-    <Property Name="MyRank" Type="int" Nullable="false" />
-    <Property Name="DepthChart" Type="int" Nullable="false" />
+    <Property Name="ESPNRank" Type="int" Nullable="true" />
+    <Property Name="MyRank" Type="int" Nullable="true" />
+    <Property Name="DepthChart" Type="int" Nullable="true" />
     <Property Name="NFLTeam_Id" Type="int" Nullable="false" />
     <Property Name="DraftPick_Id" Type="int" Nullable="true" />
   </EntityType>
@@ -109,10 +109,10 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Position" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="ESPNRank" Type="Int32" Nullable="false" />
-          <Property Name="MyRank" Type="Int32" Nullable="false" />
-          <Property Name="DepthChart" Type="Int32" Nullable="false" />
+          <Property Name="Position" Type="String" Nullable="false" />
+          <Property Name="ESPNRank" Type="Int32" Nullable="true" />
+          <Property Name="MyRank" Type="Int32" Nullable="true" />
+          <Property Name="DepthChart" Type="Int32" Nullable="true" />
           <Property Name="NFLTeam_Id" Type="Int32" Nullable="false" />
           <NavigationProperty Name="NFLTeam" Relationship="Self.FK_NFLTeamNFLPlayer" FromRole="NFLPlayers" ToRole="NFLTeams" />
           <NavigationProperty Name="DraftPick" Relationship="DraftHelperModel.DraftPickNFLPlayer" FromRole="NFLPlayer" ToRole="DraftPick" />
