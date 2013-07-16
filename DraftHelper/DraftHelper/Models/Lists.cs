@@ -16,7 +16,7 @@ namespace DraftHelper.Models
         {
             var arr_c = new[] { "AFC", "NFC" };
             var arr_d = new[] { "North", "South", "East", "West" };
-            var arr_p = new[] { "QB", "WR", "RB", "TE", "DEF" };
+            var arr_p = new[] { "QB", "WR", "RB", "TE", "D/ST", "K" };
 
             Action<List<SelectListItem>, string[]> transform = 
                 (a,b) => b.Select(q => new SelectListItem { Value = q, Text = q })

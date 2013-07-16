@@ -17,7 +17,7 @@ namespace DraftHelper.Controllers
         // GET: /Teams/
         public ActionResult Index()
         {
-            return View(db.NFLTeams.ToList());
+            return View(db.NFLTeams.OrderBy(q => q.Locale).ToList());
         }
 
         //

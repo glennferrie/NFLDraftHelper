@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.20617.1 PREVIEW
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DraftHelper", "DraftHelper\DraftHelper.csproj", "{2519EAB2-10F1-41CA-9E83-9AA8F4846075}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImportUtility", "ImportUtility\ImportUtility.csproj", "{51C26784-BAA9-46BC-8812-D73F6AC0C045}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{2519EAB2-10F1-41CA-9E83-9AA8F4846075}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2519EAB2-10F1-41CA-9E83-9AA8F4846075}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2519EAB2-10F1-41CA-9E83-9AA8F4846075}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51C26784-BAA9-46BC-8812-D73F6AC0C045}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51C26784-BAA9-46BC-8812-D73F6AC0C045}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51C26784-BAA9-46BC-8812-D73F6AC0C045}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51C26784-BAA9-46BC-8812-D73F6AC0C045}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

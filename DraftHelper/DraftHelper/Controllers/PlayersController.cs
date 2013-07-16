@@ -18,7 +18,7 @@ namespace DraftHelper.Controllers
         public ActionResult Index()
         {
             var nflplayers = db.NFLPlayers.Include(n => n.NFLTeam);
-            return View(nflplayers.ToList());
+            return View(nflplayers.OrderBy(a => a.MyRank).ToList());
         }
 
         //
