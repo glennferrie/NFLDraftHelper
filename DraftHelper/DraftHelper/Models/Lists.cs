@@ -37,5 +37,10 @@ namespace DraftHelper.Models
         {
             return divisions;
         }
+
+        public static IEnumerable<SelectListItem> GetPositions()
+        {
+            return positions;
+        }
     }
 }
